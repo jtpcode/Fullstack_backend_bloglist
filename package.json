@@ -1,0 +1,32 @@
+{
+  "name": "fullstack_backend_bloglist",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtpcode/Fullstack_backend_bloglist.git"
+  },
+  "author": "jtpcode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtpcode/Fullstack_backend_bloglist/issues"
+  },
+  "homepage": "https://github.com/jtpcode/Fullstack_backend_bloglist#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@stylistic/eslint-plugin-js": "^4.4.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.2.0"
+  }
+}
