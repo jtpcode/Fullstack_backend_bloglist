@@ -5,7 +5,7 @@ const favoriteBlog = require('../utils/list_helper').favoriteBlog
 const { blogs } = require('../utils/bloglist')
 
 describe('favorite blog', () => {
-  const mostLikedBlog = {
+  const expected = {
     _id: '5a422b3a1b54a676234d17f9',
     title: 'Canonical string reduction',
     author: 'Edsger W. Dijkstra',
@@ -15,6 +15,6 @@ describe('favorite blog', () => {
   }
 
   test('with multiple blogs', () => {
-    assert.deepStrictEqual(favoriteBlog(blogs), mostLikedBlog)
+    assert.deepStrictEqual(favoriteBlog(blogs), expected)
   })
 })
