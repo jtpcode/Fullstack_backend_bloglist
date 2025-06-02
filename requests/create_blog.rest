@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlVzZXJfMSIsImlkIjoiNjgzZDU5ZTgzOTNlMWZlZWFhOWMwNTdjIiwiaWF0IjoxNzQ4ODUyNTgyLCJleHAiOjE3NDg4NTYxODJ9.hNnJecDneUjnGxCLnHbjLnEeJACeuJbTO9EeRYuTnTA
+
+{
+    "title": "1. Blogi",
+    "author": "Jee",
+    "url": "http://jee.com",
+    "likes": 1
+}
