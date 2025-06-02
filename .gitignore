@@ -137,3 +137,4 @@ dist
 
 # Own additions
 /requests/create_blog.rest
+/requests/delete_blog.rest

@@ -24,6 +24,7 @@ mongoose.connect(config.MONGODB_URI)
 app.use(express.static('dist'))
 app.use(express.json())
 app.use(middleware.requestLogger)
+app.use(middleware.tokenExtractor)
 
 // Sitten routet mukaan, kun ylläolevat on käytössä
 app.use('/api/login', loginRouter)
