@@ -47,16 +47,16 @@ describe('when there is initially some blogs saved', () => {
   })
 
   describe('addition of a new blog', () => {
-    test('succeeds with valid data', async () => {
-      const newBlog = {
-        _id: '5a422b3a1b54a676234d17f9',
-        title: 'Canonical string reduction',
-        author: 'Edsger W. Dijkstra',
-        url: 'http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html',
-        likes: 12,
-        __v: 0
-      }
+    const newBlog = {
+      _id: '5a422b3a1b54a676234d17f9',
+      title: 'Canonical string reduction',
+      author: 'Edsger W. Dijkstra',
+      url: 'http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html',
+      likes: 12,
+      __v: 0
+    }
 
+    test('succeeds with valid data and user', async () => {
       await api
         .post('/api/blogs')
         .set('Authorization', `Bearer ${token}`)
@@ -69,6 +69,13 @@ describe('when there is initially some blogs saved', () => {
 
       const titles = blogsAtEnd.map(blog => blog.title)
       assert(titles.includes('Canonical string reduction'))
+    })
+
+    test('fails with status code 401 if user not valid', async () => {
+      await api
+        .post('/api/blogs')
+        .send(newBlog)
+        .expect(401)
     })
 
     test('if likes is not set, it will default to 0', async () => {
@@ -90,7 +97,7 @@ describe('when there is initially some blogs saved', () => {
       assert.strictEqual(response.body.likes, 0)
     })
 
-    test('fails with status code 400 if not fields title or url', async () => {
+    test('fails with status code 400 if no fields title or url', async () => {
       const noUrlBlog = {
         _id: 'a',
         title: 'Test title 1',
