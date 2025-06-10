@@ -182,7 +182,7 @@ describe('when there is initially some blogs saved', () => {
   })
 })
 
-describe('when there is initially at least one user at db', () => {
+describe('creating a new user when there is initially at least one user at db', () => {
   beforeEach(async () => {
     await User.deleteMany({})
 
@@ -281,5 +281,7 @@ describe('when there is initially at least one user at db', () => {
 })
 
 after(async () => {
+  await User.deleteMany({})
+  await Blog.deleteMany({})
   await mongoose.connection.close()
 })

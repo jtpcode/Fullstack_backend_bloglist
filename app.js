@@ -31,6 +31,11 @@ app.use('/api/login', loginRouter)
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 
+if (process.env.NODE_ENV === 'test') {
+  const testingRouter = require('./controllers/testing')
+  app.use('/api/testing', testingRouter)
+}
+
 // Viimeiseksi väärä-url ja virheiden käsittely, jos
 // oikeaa routea ei löytynyt tai heitettiin virhe
 app.use(middleware.unknownEndpoint)
